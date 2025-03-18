@@ -8,6 +8,16 @@ app.use(express.json())
 initializeDatabase()
 
 
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+
 // API with route "/books" to create a new book data in the books Database
 app.post("/books", async(req,res)=>{
     try{
